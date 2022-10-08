@@ -4,9 +4,9 @@
 typedef struct stack_node {
     int value;
     struct stack_node* next;
-}node_char;
+}node;
 
-node_char* stack = NULL;
+node* stack = NULL;
 
 void push();
 void pop();
@@ -48,7 +48,7 @@ int main() {
 }
 
 void push() {
-    node_char* temp = (node_char*) malloc(sizeof(node_char));
+    node* temp = (node*) malloc(sizeof(node));
     if (temp == NULL) {
         printf("Memory Can't be Allocated.\nSystem Terminating.\n");
         exit(0);
@@ -70,7 +70,7 @@ void pop() {
     if (stack == NULL) {
         printf("Stack is Empty.\nUnderFlow Occurred.\nTry To Push Into Stack.\n");
     } else {
-        node_char *ptr = stack;
+        node *ptr = stack;
         stack = stack->next;
         printf("%d is Popped from Stack.\n", ptr->value);
         free(ptr);
@@ -86,7 +86,7 @@ void peep() {
 }
 
 void display() {
-    node_char* ptr = stack;
+    node* ptr = stack;
     printf("<==== Displaying The Stack ====>\n");
     if (stack == NULL) {
         printf("\t\t|      |\n");
