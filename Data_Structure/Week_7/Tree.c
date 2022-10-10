@@ -33,18 +33,19 @@ node  *deleteNode(int item);
 int main() {
     int choice, item;
     label:
-    printf("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
-    printf("\t|    1 -> Insert an Element.    |\n");
-    printf("\t|    2 -> Delete an Element.    |\n");
-    printf("\t|    3 -> Pre Order Traversal.  |\n");
-    printf("\t|    4 -> In Order Traversal.   |\n");
-    printf("\t|    5 -> Post Order Traversal. |\n");
-    printf("\t|    6 -> Find Largest in BST.  |\n");
-    printf("\t|    7 -> Find Smallest in BST. |\n");
-    printf("\t|    8 -> Count Total Elements. |\n");
-    printf("\t|    9 -> Height of BST.        |\n");
-    printf("\t|   10 -> Exit The Program.     |\n");
-    printf("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
+    printf("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
+    printf("\t|    1 -> Insert an Element.     |\n");
+    printf("\t|    2 -> Delete an Element.     |\n");
+    printf("\t|    3 -> Pre Order Traversal.   |\n");
+    printf("\t|    4 -> In Order Traversal.    |\n");
+    printf("\t|    5 -> Post Order Traversal.  |\n");
+    printf("\t|    6 -> Level Order Traversal. |\n");
+    printf("\t|    7 -> Find Largest in BST.   |\n");
+    printf("\t|    8 -> Find Smallest in BST.  |\n");
+    printf("\t|    9 -> Count Total Elements.  |\n");
+    printf("\t|   10 -> Height of BST.         |\n");
+    printf("\t|   11 -> Exit The Program.      |\n");
+    printf("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
     printf("Enter Your Choice:\t");
     scanf("%d", &choice);
     switch (choice) {
@@ -71,18 +72,22 @@ int main() {
             traverseInOrderDFS(root);
             break;
         case 6:
-            printf("Largest Value in The Tree is: %d", maximumValue(root));
+            printf("\nLevel Order Traversal :====>\n");
+            traverseLevelOrderBFS(root);
             break;
         case 7:
-            printf("Smallest Value in The Tree is: %d", minimumValue(root));
+            printf("Largest Value in The Tree is: %d", maximumValue(root));
             break;
         case 8:
-            printf("Total Number of Nodes in The Tree is: %d", countTotalNumberOfNodes(root));
+            printf("Smallest Value in The Tree is: %d", minimumValue(root));
             break;
         case 9:
-            printf("Height of the Tree is: %d", height(root));
+            printf("Total Number of Nodes in The Tree is: %d", countTotalNumberOfNodes(root));
             break;
         case 10:
+            printf("Height of the Tree is: %d", height(root));
+            break;
+        case 11:
             exit(0);
         default:
             printf("Wrong Choice.\nChoose Again.\n");
