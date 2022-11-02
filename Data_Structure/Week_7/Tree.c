@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#define __max(a, b) ((a > b) ? a : b)
+#define __min(a, b) ((a < b) ? a : b)
 
 typedef struct tree_node {
     int value;
