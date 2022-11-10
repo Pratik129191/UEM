@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity full_sub is
+port(A,B: borrow_in: in std_logic;
+     diff, borrow_out : out std_logic);
+end full_sub;
+architecture flow of full_sub is
+component half_sub is
+port(A,B : in std_logic;
+     diff, borrow : out std_logic);
+end component; 
+component or-gate is
+port(A,B : in std_logic;
+     Y : out std_logic);
+end component;
+signal T1, T2, T3:std_logic;
+begin
+  half_sub1: half_sub port map (A=>A,B=>B, diff=>T1, borrow=>T2);
+  half_sub2: half_sub port map (A=>T1,B=>borrow_in, diff=>diff, borrow=>T3);
+  or-gate1: or-gate port map (A=>T3,B=>T2, Y=>borrow_out);
+end flow;
+
+
