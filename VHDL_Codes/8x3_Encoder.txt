@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity encoder_8x3 is
+port (d: in std_logic_vector (7 downto 0);
+      a,b,c : out std_logic);
+end encoder_8x3;
+architecture flow of encoder_8x3 is
+begin
+process (d)
+begin
+a <= d(4) or d(5) or d(6) or d(7);
+b <= d(2) or d(3) or d(6) or d(7);
+C <= d(1) or d(3) or d(5) or d(7);
+end process;
+end flow;
