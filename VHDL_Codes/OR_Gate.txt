@@ -1,0 +1,10 @@
+library ieeee;
+use ieee.std_logic_1164.all;
+entity OR gate is
+port (A: in std_logic; B: in std_logic;
+C:  out std_logic);
+end OR gate;
+architecture orLogic of OR gate is
+begin
+C <= A OR B;
+end orLogic;
