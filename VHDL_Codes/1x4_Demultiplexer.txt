@@ -1,0 +1,40 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity demux_4x1 is
+port( signal data : in std_logic;
+      signal select_line: in std_logic_vector(1 downto 0);
+      signal enable: in std_logic;
+      signal output: out std_logic_vector (3 downto 0));
+end demux_4x1;
+architecture flow of demux_4x1 is
+begin
+process (select_line, enable)
+begin
+if (select_line="00" and enable='1') then 
+output(3) <= data;
+output(2) <= '0';
+output(1) <= '0';
+Output(0) <= '0'; 
+elsif (select_line="01" and enable='1') then 
+output(3) <='0';
+output(2) <= data;
+output(1) <= '0';
+output(0) <= '0';
+elsif (select_line="10" and enable='1') then
+output(3) <= '0';
+output(2) <= '0';
+output(1) <= data;
+output(0) <= '0';
+elsif (select_line="11" and enable='1') then
+output(3) <= '0';
+output(2) <= '0';
+output(1) <= '0';
+output(0) <= data;
+else
+output(3) <= 'X';
+output(2) <= 'X';
+output(1) <= 'X';
+output(0) <= 'X';
+end if;
+end process;
+end flow;
